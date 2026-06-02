@@ -15,7 +15,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+        body { background-color: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; padding-bottom: 90px; }
 
         /* Вікно 18+ */
         #age-gate {
@@ -102,7 +102,7 @@
             border: 1px solid #222225; display: flex; flex-direction: column; transition: all 0.25s ease;
         }
         .card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
-        .card-icon { height: 90px; display: flex; align-items: center; justify-content: center; font-size: 42px; background: #1a1a1e; border-radius: 10px; margin-bottom: 12px; }
+        .card-icon { height: 90px; display: flex; align-items: center; justify-content: center; font-size: 32px; background: #1a1a1e; border-radius: 10px; margin-bottom: 12px; }
         
         .card-title { font-size: 14px; font-weight: 600; text-align: center; min-height: 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; line-height: 1.3; }
         
@@ -110,7 +110,7 @@
         .ml-badge { font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 6px; text-transform: uppercase; }
         .ml-30 { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
         .ml-10 { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
-        .ml-hard { background: rgba(236, 72, 153, 0.15); color: #ec4899; }
+        .ml-hard { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
 
         .card-price { font-size: 17px; font-weight: 700; text-align: center; margin: 12px 0 10px 0; color: #fff; }
         
@@ -121,7 +121,7 @@
         }
         .stock-count::before { content: ''; display: inline-block; width: 6px; height: 6px; background-color: #22c55e; border-radius: 50%; box-shadow: 0 0 6px #22c55e; }
 
-        /* Кнопка */
+        /* Кнопки */
         .btn {
             background: var(--accent); color: #fff; border: none; padding: 9px;
             border-radius: 8px; font-weight: 600; cursor: pointer; text-align: center; text-decoration: none; display: block; font-size: 13px; transition: 0.2s;
@@ -130,15 +130,36 @@
         .btn-red { background: #ef4444; }
         .btn-red:hover { background: #dc2626; }
 
+        /* Управління кількістю товару в картці */
+        .quantity-control {
+            display: flex; justify-content: space-between; align-items: center; background: #1a1a1e; border-radius: 8px; padding: 2px; border: 1px solid #27272a;
+        }
+        .qty-btn {
+            background: none; border: none; color: #fff; font-size: 16px; font-weight: bold; width: 30px; height: 30px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+        }
+        .qty-btn:hover { color: var(--accent); }
+        .qty-count { font-size: 14px; font-weight: 600; }
+
+        /* Віджет кошика знизу екранку */
+        #cart-bar {
+            position: fixed; bottom: 0; left: 0; width: 100%; background: #0f0f11; border-top: 2px solid var(--accent);
+            padding: 15px 5%; display: none; justify-content: space-between; align-items: center; z-index: 999;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.7);
+        }
+        .cart-info { font-size: 15px; font-weight: 600; }
+        .cart-info span { color: var(--accent); font-weight: 800; }
+        .cart-btn { background: #22c55e; padding: 10px 25px; border-radius: 20px; text-decoration: none; color: #fff; font-weight: 700; font-size: 14px; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3); transition: 0.2s; border: none; cursor: pointer; }
+        .cart-btn:hover { background: #16a34a; }
+
         footer { text-align: center; padding: 60px 20px; color: var(--text-muted); font-size: 13px; border-top: 1px solid #111114; margin-top: 40px; }
 
-        /* Оптимізація під мобільні (2 в ряд, щоб було компактно і густо) */
         @media (max-width: 480px) { 
             .grid { grid-template-columns: 1fr 1fr; gap: 10px; } 
             .card { padding: 12px; border-radius: 10px; } 
             .card-title { font-size: 13px; min-height: 42px; } 
-            .card-icon { height: 75px; font-size: 35px; }
+            .card-icon { height: 75px; font-size: 30px; }
             .shelf-section { padding: 15px; }
+            #cart-bar { flex-direction: column; gap: 10px; text-align: center; padding: 12px; }
         }
     </style>
 </head>
@@ -148,7 +169,7 @@
     <div id="age-gate">
         <div class="age-box">
             <h1>ПЕРЕВІРКА ВІКУ</h1>
-            <p>Вам вже виповнилося 18 років? Продаж нікотину неповнолітнім заборонений.</p>
+            <p>Вам вже виповнилося 18 років? Продаж нікотину неповнолітинім заборонений.</p>
             <div class="age-buttons">
                 <button class="btn" onclick="acceptAge()">ТАК, МЕНІ Є 18</button>
                 <a href="https://www.youtube.com/watch?v=KYniUCGPGLs" class="btn btn-red">НІ, МЕНІ НЕМАЄ 18</a>
@@ -163,7 +184,7 @@
 
     <!-- НАВІГАЦІЯ -->
     <div class="shelf-navigation">
-        <div class="nav-title font-semibold">Оберіть потрібну поличку:</div>
+        <div class="nav-title">Оберіть потрібну поличку:</div>
         <div class="nav-buttons">
             <button class="nav-btn active" onclick="showShelf('all')">Усі товари</button>
             <button class="nav-btn" onclick="showShelf('30')">Рідини 30 мл</button>
@@ -177,111 +198,485 @@
         <!-- ================= ПОЛИЧКА №1: 30 МЛ ================= -->
         <div id="shelf-30" class="shelf-section">
             <div class="shelf-title">
-                <h2>🧪 Поличка Chaser 30 мл</h2>
+                <h2>🧪 Поличка Chaser 30 мл (65mg)</h2>
                 <div class="badge">290 грн</div>
             </div>
 
-            <!-- КИСЛІ ЛИМОНАДИ ТА МІКСИ -->
+            <!-- КИСЛІ ТА ОСВІЖАЮЧІ -->
             <div class="flavor-category">
                 <div class="category-title">🍋 Кислі та Освіжаючі мікси</div>
                 <div class="grid">
-                    <div class="card"><div class="card-icon">🍑🍋</div><div class="card-title">Plum Lime Sour <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">3 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🫐🍓🍋</div><div class="card-title">Blackberry Sour Raspberry <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">5 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍋🩷</div><div class="card-title">Pink Lemonade <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">5 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍏🍋</div><div class="card-title">Triple Sour Apple <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">3 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍓🍋</div><div class="card-title">Суниця Лимон <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🔵🍓🍋</div><div class="card-title">Блакитна Малина Лимонад <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">5 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍉🍋</div><div class="card-title">Кавуновий Лимонад <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">2 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍉🍋</div><div class="card-title">Watermelon Lemon <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">2 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+                    <div class="card" data-id="30-1" data-name="Plum Lime Sour (30ml)" data-price="290">
+                        <div class="card-icon">🍑🍋</div>
+                        <div class="card-title">Plum Lime Sour <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">3 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-2" data-name="Blackberry Sour Raspberry (30ml)" data-price="290">
+                        <div class="card-icon">🫐🍓🍋</div>
+                        <div class="card-title">Blackberry Sour Rasp. <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-3" data-name="Pink Lemonade (30ml)" data-price="290">
+                        <div class="card-icon">🍋🩷</div>
+                        <div class="card-title">Pink Lemonade <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-4" data-name="Triple Sour Apple (30ml)" data-price="290">
+                        <div class="card-icon">🍏🍋</div>
+                        <div class="card-title">Triple Sour Apple <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">3 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-5" data-name="Cranberry Mint (30ml)" data-price="290">
+                        <div class="card-icon">🍒🌿</div>
+                        <div class="card-title">Cranberry Mint <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-6" data-name="Cool Mint (30ml)" data-price="290">
+                        <div class="card-icon">❄️🌿</div>
+                        <div class="card-title">Cool Mint <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-7" data-name="Spearmint (30ml)" data-price="290">
+                        <div class="card-icon">🌱</div>
+                        <div class="card-title">Spearmint <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-8" data-name="Sweet Mint (30ml)" data-price="290">
+                        <div class="card-icon">🍬🌿</div>
+                        <div class="card-title">Sweet Mint <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-9" data-name="Суниця Лимон (30ml)" data-price="290">
+                        <div class="card-icon">🍓🍋</div>
+                        <div class="card-title">Суниця Лимон <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-10" data-name="Watermelon Lemon (30ml)" data-price="290">
+                        <div class="card-icon">🍉🍋</div>
+                        <div class="card-title">Watermelon Lemon <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-11" data-name="Blueberry Lemon (30ml)" data-price="290">
+                        <div class="card-icon">🫐🍋</div>
+                        <div class="card-title">Blueberry Lemon <span class="ml-badge ml-30">2 шт</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-12" data-name="Блакитна Малина Лимонад (30ml)" data-price="290">
+                        <div class="card-icon">🔵🍓🍋</div>
+                        <div class="card-title">Блакитна Малина Лимонад <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-13" data-name="Кавуновий Лимонад (30ml)" data-price="290">
+                        <div class="card-icon">🍉🍋</div>
+                        <div class="card-title">Кавуновий Лимонад <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-14" data-name="Базилік Мʼята (30ml)" data-price="290">
+                        <div class="card-icon">🌿🌱</div>
+                        <div class="card-title">Базилік Мʼята <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-15" data-name="Прохолодна Мята (30ml)" data-price="290">
+                        <div class="card-icon">❄️🌿</div>
+                        <div class="card-title">Прохолодна Мята <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-16" data-name="Blueberry Mint (30ml)" data-price="290">
+                        <div class="card-icon">🫐🌿</div>
+                        <div class="card-title">Blueberry Mint <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-17" data-name="Кавун Ментол (30ml)" data-price="290">
+                        <div class="card-icon">🍉❄️</div>
+                        <div class="card-title">Кавун Ментол <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-18" data-name="Чорниця Ментол (30ml)" data-price="290">
+                        <div class="card-icon">🫐❄️</div>
+                        <div class="card-title">Чорниця Menthol <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-19" data-name="Смородина Ментол (30ml)" data-price="290">
+                        <div class="card-icon">🫐❄️</div>
+                        <div class="card-title">Смородина Menthol <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-20" data-name="Вишня Ментол (30ml)" data-price="290">
+                        <div class="card-icon">🍒❄️</div>
+                        <div class="card-title">Вишня Ментол <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
                 </div>
             </div>
 
-            <!-- СОЛОДКІ ЯГОДИ -->
+            <!-- СОЛОДКІ ЯГОДИ ТА МІКСИ -->
             <div class="flavor-category">
                 <div class="category-title">🍓 Солодкі Ягідні Коктейлі</div>
                 <div class="grid">
-                    <div class="card"><div class="card-icon">🍓🫐🍇</div><div class="card-title">Pamberry <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🌲🍓🫐</div><div class="card-title">Forest Mix <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">4 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍓🍓🍓</div><div class="card-title">Triple Raspberry <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">3 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍓🫐</div><div class="card-title">Ягоди <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">5 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍓🫐</div><div class="card-title">Strawberry Blueberry <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">9 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍇🫐</div><div class="card-title">Grape Blackberry <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">4 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🫐🍋</div><div class="card-title">Blueberry Lemon <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">2 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🫐🍐</div><div class="card-title">Чорна Смородина Груша <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">4 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍇🍒</div><div class="card-title">Виноград Вишня <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">3 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍓🫐</div><div class="card-title">Berry Needles <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">7 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🫐</div><div class="card-title">Blackberry <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">8 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍒</div><div class="card-title">Cherries <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">3 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🫐🍑🍏</div><div class="card-title">Blackcurrent Peach Apple <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🔵🍓</div><div class="card-title">Блакитна Малина <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">2 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍒</div><div class="card-title">Вишня <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">4 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍒</div><div class="card-title">Порічка <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">2 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🫐🍓</div><div class="card-title">Смородина Малина <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">2 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🟡🍓</div><div class="card-title">Жовта Малина <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+                    <div class="card" data-id="30-21" data-name="Ягоди (30ml)" data-price="290">
+                        <div class="card-icon">🍓🫐</div>
+                        <div class="card-title">Ягоди <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-22" data-name="Pamberry (30ml)" data-price="290">
+                        <div class="card-icon">🍓🫐🍇</div>
+                        <div class="card-title">Pamberry <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-23" data-name="Forest Mix (30ml)" data-price="290">
+                        <div class="card-icon">🌲🍓🫐</div>
+                        <div class="card-title">Forest Mix <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-24" data-name="Triple Berry (30ml)" data-price="290">
+                        <div class="card-icon">🍓🫐🍇</div>
+                        <div class="card-title">Triple Berry <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-25" data-name="Strawberry Blueberry (30ml)" data-price="290">
+                        <div class="card-icon">🍓🫐</div>
+                        <div class="card-title">Strawberry Blueberry <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">9 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-26" data-name="Grape Blackberry (30ml)" data-price="290">
+                        <div class="card-icon">🍇🫐</div>
+                        <div class="card-title">Grape Blackberry <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-27" data-name="Triple Raspberry (30ml)" data-price="290">
+                        <div class="card-icon">🍓🍓🍓</div>
+                        <div class="card-title">Triple Raspberry <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">3 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-28" data-name="Блакитна Малина (30ml)" data-price="290">
+                        <div class="card-icon">🔵🍓</div>
+                        <div class="card-title">Блакитна Малина <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-29" data-name="Смородина Малина (30ml)" data-price="290">
+                        <div class="card-icon">🫐🍓</div>
+                        <div class="card-title">Смородина Малина <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-30" data-name="Berry Needles (30ml)" data-price="290">
+                        <div class="card-icon">🍓🫐</div>
+                        <div class="card-title">Berry Needles <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">7 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-31" data-name="Blackberry (30ml)" data-price="290">
+                        <div class="card-icon">🫐</div>
+                        <div class="card-title">Blackberry <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">8 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-32" data-name="Жовта Малина (30ml)" data-price="290">
+                        <div class="card-icon">🟡🍓</div>
+                        <div class="card-title">Жовта Малина <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
                 </div>
             </div>
 
-            <!-- СТИГЛІ ФРУКТИ -->
+            <!-- ФРУКТИ ТА ЕКЗОТИКА -->
             <div class="flavor-category">
-                <div class="category-title">🍎 Натуральні Стиглі Фрукти</div>
+                <div class="category-title">🥭 Стиглі Фрукти та Екзотика</div>
                 <div class="grid">
-                    <div class="card"><div class="card-icon">🍓🍌</div><div class="card-title">Полуниця Банан <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">4 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍉</div><div class="card-title">Кавун <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">4 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍑</div><div class="card-title">Персик <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍇</div><div class="card-title">Виноград <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">3 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🥝</div><div class="card-title">Ківі <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">3 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍉🍏</div><div class="card-title">Кавун Яблуко <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">5 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🥭🍑</div><div class="card-title">Гуава Персик <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍌</div><div class="card-title">Банан <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍓</div><div class="card-title">Полуниця <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">2 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">❤️🍎</div><div class="card-title">Гранат <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍓</div><div class="card-title">Суниця <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍉🍒</div><div class="card-title">Кавун Вишня <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">4 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍒</div><div class="card-title">Черешня <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">4 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🟡🐉</div><div class="card-title">Жовтий Драгонфрукт <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">5 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🟡🍒</div><div class="card-title">Жовта Черешня <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">2 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍊</div><div class="card-title">Грейпфрут <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+                    <div class="card" data-id="30-33" data-name="Blackcurrant Peach Apple (30ml)" data-price="290">
+                        <div class="card-icon">🫐🍑🍏</div>
+                        <div class="card-title">Blackcurrant Peach Apple <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-34" data-name="Полуниця (30ml)" data-price="290">
+                        <div class="card-icon">🍓</div>
+                        <div class="card-title">Полуниця <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-35" data-name="Полуниця Банан (30ml)" data-price="290">
+                        <div class="card-icon">🍓🍌</div>
+                        <div class="card-title">Полуниця Банан <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-36" data-name="Кавун (30ml)" data-price="290">
+                        <div class="card-icon">🍉</div>
+                        <div class="card-title">Кавун <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-37" data-name="Грейпфрут (30ml)" data-price="290">
+                        <div class="card-icon">🍊</div>
+                        <div class="card-title">Грейпфрут <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-38" data-name="Flirt (30ml)" data-price="290">
+                        <div class="card-icon">😈🍓</div>
+                        <div class="card-title">Flirt <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-39" data-name="Полуниця Виноград (30ml)" data-price="290">
+                        <div class="card-icon">🍓🍇</div>
+                        <div class="card-title">Полуниця Виноград <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-40" data-name="Персик (30ml)" data-price="290">
+                        <div class="card-icon">🍑</div>
+                        <div class="card-title">Персик <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-41" data-name="Гранат (30ml)" data-price="290">
+                        <div class="card-icon">❤️🍎</div>
+                        <div class="card-title">Гранат <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-42" data-name="Виноград (30ml)" data-price="290">
+                        <div class="card-icon">🍇</div>
+                        <div class="card-title">Виноград <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">3 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-43" data-name="Чорна Смородина Груша (30ml)" data-price="290">
+                        <div class="card-icon">🫐🍐</div>
+                        <div class="card-title">Смородина Груша <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-44" data-name="Ківі (30ml)" data-price="290">
+                        <div class="card-icon">🥝</div>
+                        <div class="card-title">Ківі <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">3 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-45" data-name="Кавун Яблуко (30ml)" data-price="290">
+                        <div class="card-icon">🍉🍏</div>
+                        <div class="card-title">Кавун Яблуко <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-46" data-name="Гуава Персик (30ml)" data-price="290">
+                        <div class="card-icon">🥭🍑</div>
+                        <div class="card-title">Гуава Персик <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-47" data-name="Суниця (30ml)" data-price="290">
+                        <div class="card-icon">🍓</div>
+                        <div class="card-title">Суниця <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-48" data-name="Кавун Вишня (30ml)" data-price="290">
+                        <div class="card-icon">🍉🍒</div>
+                        <div class="card-title">Кавун Вишня <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-49" data-name="Черешня (30ml)" data-price="290">
+                        <div class="card-icon">🍒</div>
+                        <div class="card-title">Черешня <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-50" data-name="Вишня (30ml)" data-price="290">
+                        <div class="card-icon">🍒</div>
+                        <div class="card-title">Вишня <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-51" data-name="Порічка (30ml)" data-price="290">
+                        <div class="card-icon">🍒</div>
+                        <div class="card-title">Порічка <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-52" data-name="Виноград Вишня (30ml)" data-price="290">
+                        <div class="card-icon">🍇🍒</div>
+                        <div class="card-title">Виноград Вишня <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">3 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-53" data-name="Cherries (30ml)" data-price="290">
+                        <div class="card-icon">🍒</div>
+                        <div class="card-title">Cherries <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">3 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-54" data-name="Жовтий Драгонфрукт (30ml)" data-price="290">
+                        <div class="card-icon">🟡🐉</div>
+                        <div class="card-title">Жовтий Драгонфрукт <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-55" data-name="Банан (30ml)" data-price="290">
+                        <div class="card-icon">🍌</div>
+                        <div class="card-title">Банан <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-56" data-name="Жовта Черешня (30ml)" data-price="290">
+                        <div class="card-icon">🟡🍒</div>
+                        <div class="card-title">Жовта Черешня <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
                 </div>
             </div>
 
-            <!-- М'ЯТНІ, КРИЖАНІ ТА СВІЖІ -->
+            <!-- НАПОЇ, ЖУЙКИ ТА ЦУКЕРКИ -->
             <div class="flavor-category">
-                <div class="category-title">❄️ Морозні та М'ятні (Menthol)</div>
+                <div class="category-title">🍬 Напої, Жуйки та Цукерки</div>
                 <div class="grid">
-                    <div class="card"><div class="card-icon">🍒🌿</div><div class="card-title">Cranberry Mint <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">5 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">❄️🌿</div><div class="card-title">Cool Mint / Прохолодна Мята <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">3 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🌱</div><div class="card-title">Spearmint <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">2 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍬🌿</div><div class="card-title">Sweet Mint <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍉❄️</div><div class="card-title">Кавун Ментол <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🌿🍬</div><div class="card-title">Мятний Орбіт <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">5 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🫐❄️</div><div class="card-title">Чорниця Menthol <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🌿🌱</div><div class="card-title">Базилік Мʼята <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">2 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🫐❄️</div><div class="card-title">Смородина Ментол <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">2 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍒❄️</div><div class="card-title">Вишня Ментол <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🫐🌿</div><div class="card-title">Blueberry Mint <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                </div>
-            </div>
-
-            <!-- ЛИМОНАДИ, ЖВАЧКИ ТА ОРИГІНАЛЬНІ МІКСИ -->
-            <div class="flavor-category">
-                <div class="category-title">⚡ Напої, Цукерки та Чайні лимонади</div>
-                <div class="grid">
-                    <div class="card"><div class="card-icon">🍬</div><div class="card-title">Bubblegum <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">⚡🍒</div><div class="card-title">Енергетик Вишня <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">3 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">⚡🍇</div><div class="card-title">Енергетик Виноград <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">5 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🥤🍊</div><div class="card-title">Cola Pomelo <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">⚡🍓</div><div class="card-title">Energy Raspberry <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">3 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍒🍵</div><div class="card-title">Вишневий Чай <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍹</div><div class="card-title">Punch <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">4 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍂🍵</div><div class="card-title">Fall Tea <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🌸🍓🍵</div><div class="card-title">Jasmine Raz Tea <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍧</div><div class="card-title">Щербет <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">5 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🫐🍦</div><div class="card-title">Чорничне Морозиво <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍓🍬</div><div class="card-title">Berry Candy <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">3 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍓🍮</div><div class="card-title">Strawberry Jelly <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🫐🍬</div><div class="card-title">Blueberry Gum <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">10 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">😈🍓</div><div class="card-title">Flirt <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">2 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🫐🌹</div><div class="card-title">Blackcurrant Rose <span class="ml-badge ml-30">30 ML</span></div><div class="card-price">290 грн<div class="stock-count">2 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+                    <div class="card" data-id="30-57" data-name="Bubblegum (30ml)" data-price="290">
+                        <div class="card-icon">🍬</div>
+                        <div class="card-title">Bubblegum <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-58" data-name="Енергетик Вишня (30ml)" data-price="290">
+                        <div class="card-icon">⚡🍒</div>
+                        <div class="card-title">Енергетик Вишня <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-59" data-name="Енергетик Виноград (30ml)" data-price="290">
+                        <div class="card-icon">⚡🍇</div>
+                        <div class="card-title">Енергетик Виноград <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-60" data-name="Мятний Орбіт (30ml)" data-price="290">
+                        <div class="card-icon">🌿🍬</div>
+                        <div class="card-title">Мятний Орбіт <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-61" data-name="Щербет (30ml)" data-price="290">
+                        <div class="card-icon">🍧</div>
+                        <div class="card-title">Щербет <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-62" data-name="Cola Pomelo (30ml)" data-price="290">
+                        <div class="card-icon">🥤🍊</div>
+                        <div class="card-title">Cola Pomelo <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-63" data-name="Blueberry Gum (30ml)" data-price="290">
+                        <div class="card-icon">🫐🍬</div>
+                        <div class="card-title">Blueberry Gum <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">6 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-64" data-name="Energy Raspberry (30ml)" data-price="290">
+                        <div class="card-icon">⚡🍓</div>
+                        <div class="card-title">Energy Raspberry <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">3 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-65" data-name="Вишневий Чай (30ml)" data-price="290">
+                        <div class="card-icon">🍒🍵</div>
+                        <div class="card-title">Вишневий Чай <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-66" data-name="Чорнична Жуйка (30ml)" data-price="290">
+                        <div class="card-icon">🫐🍬</div>
+                        <div class="card-title">Чорнична Жуйка <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-67" data-name="Чорничне Морозиво (30ml)" data-price="290">
+                        <div class="card-icon">🫐🍦</div>
+                        <div class="card-title">Чорничне Морозиво <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-68" data-name="Виноградний Енергетик (30ml)" data-price="290">
+                        <div class="card-icon">🍇⚡</div>
+                        <div class="card-title">Виноградний Енерг. <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">3 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-69" data-name="Punch (30ml)" data-price="290">
+                        <div class="card-icon">🍹</div>
+                        <div class="card-title">Punch <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-70" data-name="Fall Tea (30ml)" data-price="290">
+                        <div class="card-icon">🍂🍵</div>
+                        <div class="card-title">Fall Tea <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-71" data-name="Berry Candy (30ml)" data-price="290">
+                        <div class="card-icon">🍓🍬</div>
+                        <div class="card-title">Berry Candy <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">3 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-72" data-name="Strawberry Jelly (30ml)" data-price="290">
+                        <div class="card-icon">🍓🍮</div>
+                        <div class="card-title">Strawberry Jelly <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-73" data-name="Energy Cherry (30ml)" data-price="290">
+                        <div class="card-icon">⚡🍒</div>
+                        <div class="card-title">Energy Cherry <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-74" data-name="Blackcurrant Rose (30ml)" data-price="290">
+                        <div class="card-icon">🫐🌹</div>
+                        <div class="card-title">Blackcurrant Rose <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="30-75" data-name="Jasmine Raz Tea (30ml)" data-price="290">
+                        <div class="card-icon">🌸🍓🍵</div>
+                        <div class="card-title">Jasmine Raz Tea <span class="ml-badge ml-30">30 ML</span></div>
+                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -289,40 +684,85 @@
         <!-- ================= ПОЛИЧКА №2: 10 МЛ ================= -->
         <div id="shelf-10" class="shelf-section">
             <div class="shelf-title">
-                <h2>🧪 Поличка Chaser 10 мл</h2>
+                <h2>🧪 Поличка Chaser 10 мл (65mg)</h2>
                 <div class="badge">145 грн</div>
             </div>
 
-            <!-- КИСЛІ -->
             <div class="flavor-category">
-                <div class="category-title">🍋 Кислі освіжаючі нотки</div>
+                <div class="category-title">✨ Доступні смаки 10 мл</div>
                 <div class="grid">
-                    <div class="card"><div class="card-icon">🍏🌿</div><div class="card-title">Яблуко Мʼята <span class="ml-badge ml-10">10 ML</span></div><div class="card-price">145 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                </div>
-            </div>
-
-            <!-- СОЛОДКІ -->
-            <div class="flavor-category">
-                <div class="category-title">🍓 Фрукти та Ягоди (Солодкі)</div>
-                <div class="grid">
-                    <div class="card"><div class="card-icon">🍉</div><div class="card-title">Кавун <span class="ml-badge ml-10">10 ML</span></div><div class="card-price">145 грн<div class="stock-count">3 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🟡🐉</div><div class="card-title">Жовтий Драгонфрукт <span class="ml-badge ml-10">10 ML</span></div><div class="card-price">145 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍊</div><div class="card-title">Грейпфрут <span class="ml-badge ml-10">10 ML</span></div><div class="card-price">145 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍒</div><div class="card-title">Черешня <span class="ml-badge ml-10">10 ML</span></div><div class="card-price">145 грн<div class="stock-count">2 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍓</div><div class="card-title">Суниця <span class="ml-badge ml-10">10 ML</span></div><div class="card-price">145 грн<div class="stock-count">2 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍓</div><div class="card-title">Полуниця <span class="ml-badge ml-10">10 ML</span></div><div class="card-price">145 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                </div>
-            </div>
-
-            <!-- СВІЖІ -->
-            <div class="flavor-category">
-                <div class="category-title">❄️ Льодяні та Свіжі моносмаки</div>
-                <div class="grid">
-                    <div class="card"><div class="card-icon">🫐❄️</div><div class="card-title">Смородина Ментол <span class="ml-badge ml-10">10 ML</span></div><div class="card-price">145 грн<div class="stock-count">7 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🌿</div><div class="card-title">Мʼята <span class="ml-badge ml-10">10 ML</span></div><div class="card-price">145 грн<div class="stock-count">5 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍉❄️</div><div class="card-title">Кавун Ментол <span class="ml-badge ml-10">10 ML</span></div><div class="card-price">145 грн<div class="stock-count">3 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🫐❄️</div><div class="card-title">Чорниця Ментол <span class="ml-badge ml-10">10 ML</span></div><div class="card-price">145 грн<div class="stock-count">2 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-                    <div class="card"><div class="card-icon">🍒❄️</div><div class="card-title">Вишня Ментол <span class="ml-badge ml-10">10 ML</span></div><div class="card-price">145 грн<div class="stock-count">1 шт</div></div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+                    <div class="card" data-id="10-1" data-name="Смородина Ментол (10ml)" data-price="145">
+                        <div class="card-icon">🫐❄️</div>
+                        <div class="card-title">Смородина Ментол <span class="ml-badge ml-10">10 ML</span></div>
+                        <div class="card-price">145 грн<div class="stock-count">7 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="10-2" data-name="Мʼята (10ml)" data-price="145">
+                        <div class="card-icon">🌿</div>
+                        <div class="card-title">Мʼята <span class="ml-badge ml-10">10 ML</span></div>
+                        <div class="card-price">145 грн<div class="stock-count">5 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="10-3" data-name="Кавун (10ml)" data-price="145">
+                        <div class="card-icon">🍉</div>
+                        <div class="card-title">Кавун <span class="ml-badge ml-10">10 ML</span></div>
+                        <div class="card-price">145 грн<div class="stock-count">3 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="10-4" data-name="Полуниця (10ml)" data-price="145">
+                        <div class="card-icon">🍓</div>
+                        <div class="card-title">Полуниця <span class="ml-badge ml-10">10 ML</span></div>
+                        <div class="card-price">145 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="10-5" data-name="Жовтий Драгонфрукт (10ml)" data-price="145">
+                        <div class="card-icon">🟡🐉</div>
+                        <div class="card-title">Жовтий Драгонфрукт <span class="ml-badge ml-10">10 ML</span></div>
+                        <div class="card-price">145 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="10-6" data-name="Грейпфрут (10ml)" data-price="145">
+                        <div class="card-icon">🍊</div>
+                        <div class="card-title">Грейпфрут <span class="ml-badge ml-10">10 ML</span></div>
+                        <div class="card-price">145 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="10-7" data-name="Кавун Ментол (10ml)" data-price="145">
+                        <div class="card-icon">🍉❄️</div>
+                        <div class="card-title">Кавун Ментол <span class="ml-badge ml-10">10 ML</span></div>
+                        <div class="card-price">145 грн<div class="stock-count">3 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="10-8" data-name="Яблуко Мʼята (10ml)" data-price="145">
+                        <div class="card-icon">🍏🌿</div>
+                        <div class="card-title">Яблуко Мʼята <span class="ml-badge ml-10">10 ML</span></div>
+                        <div class="card-price">145 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="10-9" data-name="Черешня (10ml)" data-price="145">
+                        <div class="card-icon">🍒</div>
+                        <div class="card-title">Черешня <span class="ml-badge ml-10">10 ML</span></div>
+                        <div class="card-price">145 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="10-10" data-name="Чорниця Ментол (10ml)" data-price="145">
+                        <div class="card-icon">🫐❄️</div>
+                        <div class="card-title">Чорниця Ментол <span class="ml-badge ml-10">10 ML</span></div>
+                        <div class="card-price">145 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="10-11" data-name="Вишня Ментол (10ml)" data-price="145">
+                        <div class="card-icon">🍒❄️</div>
+                        <div class="card-title">Вишня Ментол <span class="ml-badge ml-10">10 ML</span></div>
+                        <div class="card-price">145 грн<div class="stock-count">1 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
+                    <div class="card" data-id="10-12" data-name="Суниця (10ml)" data-price="145">
+                        <div class="card-icon">🍓</div>
+                        <div class="card-title">Суниця <span class="ml-badge ml-10">10 ML</span></div>
+                        <div class="card-price">145 грн<div class="stock-count">2 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -330,46 +770,153 @@
         <!-- ================= ПОЛИЧКА №3: КАРТРИДЖІ ================= -->
         <div id="shelf-hard" class="shelf-section">
             <div class="shelf-title">
-                <h2>🔋 Поличка Розхідників</h2>
+                <h2>🔋 Поличка Картриджі</h2>
                 <div class="badge">130 грн</div>
             </div>
-            <div class="grid">
-                <div class="card">
-                    <div class="card-icon">🔋</div>
-                    <div class="card-title">Xros 0.6 2ml <span class="ml-badge ml-hard">Картридж</span></div>
-                    <div class="card-price">130 грн/шт<div class="stock-count">8 шт</div></div>
-                    <a href="https://t.me/Marden_Chaser" class="btn">Замовити</a>
+
+            <div class="flavor-category">
+                <div class="category-title">📦 Комплектуючі</div>
+                <div class="grid">
+                    <div class="card" data-id="cartridge-1" data-name="Картридж Xros 0.6 2ml" data-price="130">
+                        <div class="card-icon">⚡🔋</div>
+                        <div class="card-title">Xros 0.6 2ml <span class="ml-badge ml-hard">MESH</span></div>
+                        <div class="card-price">130 грн<div class="stock-count">8 шт</div></div>
+                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
+                    </div>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <footer>
-        <p>18+ | Marden Vape Shop | 2026</p>
-    </footer>
+    <!-- Плаваюча панель кошика знизу -->
+    <div id="cart-bar">
+        <div class="cart-info">Обрано товарів: <span id="cart-count">0</span> шт. | Сума: <span id="cart-total">0</span> грн</div>
+        <button class="cart-btn" onclick="checkoutOrder()">Оформити в Telegram ✈</button>
+    </div>
+
+    <footer>Marden Vape © 2026</footer>
 
     <script>
+        // Перевірка віку
+        if(localStorage.getItem('age_verified') === 'true') {
+            document.getElementById('age-gate').style.display = 'none';
+        }
         function acceptAge() {
+            localStorage.setItem('age_verified', 'true');
             document.getElementById('age-gate').style.display = 'none';
         }
 
+        // Перемикання поличок
         function showShelf(shelfId) {
-            const buttons = document.querySelectorAll('.nav-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
+            
+            if(shelfId === 'all') {
+                document.getElementById('shelf-30').style.display = 'block';
+                document.getElementById('shelf-10').style.display = 'block';
+                document.getElementById('shelf-hard').style.display = 'block';
+            } else if(shelfId === '30') {
+                document.getElementById('shelf-30').style.display = 'block';
+                document.getElementById('shelf-10').style.display = 'none';
+                document.getElementById('shelf-hard').style.display = 'none';
+            } else if(shelfId === '10') {
+                document.getElementById('shelf-30').style.display = 'none';
+                document.getElementById('shelf-10').style.display = 'block';
+                document.getElementById('shelf-hard').style.display = 'none';
+            } else if(shelfId === 'hard') {
+                document.getElementById('shelf-30').style.display = 'none';
+                document.getElementById('shelf-10').style.display = 'none';
+                document.getElementById('shelf-hard').style.display = 'block';
+            }
+        }
 
-            const shelves = document.querySelectorAll('.shelf-section');
-            shelves.forEach(shelf => {
-                if (shelfId === 'all') {
-                    shelf.style.display = 'block';
-                } else {
-                    if (shelf.id === 'shelf-' + shelfId) {
-                        shelf.style.display = 'block';
-                    } else {
-                        shelf.style.display = 'none';
-                    }
-                }
+        // Логіка КУПІВЛІ ТА КОШИКА
+        let cart = {};
+
+        function addToCart(button) {
+            const card = button.closest('.card');
+            const id = card.getAttribute('data-id');
+            const name = card.getAttribute('data-name');
+            const price = parseInt(card.getAttribute('data-price'));
+            const actionZone = card.querySelector('.action-zone');
+
+            if (!cart[id]) {
+                cart[id] = { name: name, price: price, qty: 1 };
+            }
+            updateCardUI(id, actionZone);
+            updateCartBar();
+        }
+
+        function changeQty(id, delta, element) {
+            if (!cart[id]) return;
+            
+            cart[id].qty += delta;
+            
+            if (cart[id].qty <= 0) {
+                delete cart[id];
+                const actionZone = element.closest('.action-zone');
+                actionZone.innerHTML = `<button class="btn" onclick="addToCart(this)">В кошик</button>`;
+            } else {
+                const card = element.closest('.card');
+                updateCardUI(id, card.querySelector('.action-zone'));
+            }
+            updateCartBar();
+        }
+
+        function updateCardUI(id, actionZone) {
+            const qty = cart[id] ? cart[id].qty : 0;
+            actionZone.innerHTML = `
+                <div class="quantity-control">
+                    <button class="qty-btn" onclick="changeQty('${id}', -1, this)">-</button>
+                    <span class="qty-count">${qty}</span>
+                    <button class="qty-btn" onclick="changeQty('${id}', 1, this)">+</button>
+                </div>
+            `;
+        }
+
+        function updateCartBar() {
+            const cartBar = document.getElementById('cart-bar');
+            let totalItems = 0;
+            let totalPrice = 0;
+
+            for (let id in cart) {
+                totalItems += cart[id].qty;
+                totalPrice += cart[id].qty * cart[id].price;
+            }
+
+            document.getElementById('cart-count').innerText = totalItems;
+            document.getElementById('cart-total').innerText = totalPrice;
+
+            if (totalItems > 0) {
+                cartBar.style.display = 'flex';
+            } else {
+                cartBar.style.display = 'none';
+            }
+        }
+
+        // Генерація тексту замовлення
+        function checkoutOrder() {
+            let orderText = "Привіт! Хочу зробити замовлення:\n\n";
+            let totalPrice = 0;
+            let index = 1;
+
+            for (let id in cart) {
+                let item = cart[id];
+                let itemCost = item.qty * item.price;
+                orderText += `${index}. ${item.name} — ${item.qty} шт. (${itemCost} грн)\n`;
+                totalPrice += itemCost;
+                index++;
+            }
+
+            orderText += `\nЗагальна сума: ${totalPrice} грн`;
+
+            navigator.clipboard.writeText(orderText).then(() => {
+                alert("🛒 Замовлення скопійовано у буфер обміну!\n\nТепер просто встав текст у чат з менеджером.");
+                window.open("https://t.me/Marden_Chaser", "_blank");
+            }).catch(err => {
+                alert("Щось пішло не так з автокопіюванням, але ти можеш написати менеджеру напряму!");
+                window.open("https://t.me/Marden_Chaser", "_blank");
             });
         }
     </script>
