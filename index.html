@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marden Vape | Онлайн Вітрина</title>
+    <style>
+        :root {
+            --accent: #a855f7; /* Фіолетовий неоновий колір */
+            --accent-hover: #9333ea;
+            --bg: #09090b;
+            --card-bg: #18181b;
+            --text: #f4f4f5;
+            --text-muted: #a1a1aa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        /* Вікно 18+ */
+        #age-gate {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(9, 9, 11, 0.98); z-index: 9999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            padding: 20px;
+        }
+        .age-box {
+            text-align: center; max-width: 450px;
+            background: var(--card-bg);
+            border: 2px solid var(--accent); border-radius: 16px; padding: 30px;
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.2);
+        }
+        .age-box h1 { font-size: 28px; margin-bottom: 15px; color: #fff; }
+        .age-box p { color: var(--text-muted); margin-bottom: 25px; font-size: 15px; }
+
+        /* Шапка */
+        header {
+            background: #121214;
+            padding: 15px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 100;
+            border-bottom: 1px solid #27272a;
+        }
+        .logo { font-size: 22px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+        .logo span { color: var(--accent); }
+        .tg-btn-top {
+            background: #22c55e; color: #fff; padding: 8px 16px;
+            border-radius: 20px; text-decoration: none; font-weight: 600;
+            font-size: 14px; transition: 0.2s;
+        }
+        .tg-btn-top:hover { background: #16a34a; }
+
+        /* Контент */
+        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+        
+        .section-title {
+            font-size: 24px; margin: 40px 0 20px 0; padding-bottom: 10px;
+            border-bottom: 2px solid #27272a; display: flex; justify-content: space-between; align-items: center;
+        }
+        .section-title span { font-size: 16px; color: var(--accent); background: rgba(168,85,247,0.1); padding: 4px 12px; border-radius: 12px; }
+
+        /* Сітка товарів */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg); border-radius: 12px; padding: 20px;
+            border: 1px solid #27272a; display: flex; flex-direction: column;
+            position: relative; transition: transform 0.2s, border-color 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px); border-color: var(--accent);
+        }
+
+        .card-icon {
+            height: 120px; display: flex; align-items: center; justify-content: center;
+            font-size: 55px; background: #202024; border-radius: 8px; margin-bottom: 15px;
+        }
+
+        .card-title { font-size: 16px; font-weight: 600; margin-bottom: 5px; min-height: 48px; display: flex; align-items: center; justify-content: center; text-align: center; }
+        .card-stock { font-size: 13px; color: var(--text-muted); margin-bottom: 15px; text-align: center; }
+        .card-bottom { margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
+        .card-price { font-size: 20px; font-weight: 700; color: #fff; text-align: center; }
+
+        .btn {
+            background: var(--accent); color: #fff; border: none; padding: 10px;
+            border-radius: 8px; font-weight: 600; cursor: pointer; text-transform: uppercase;
+            font-size: 13px; transition: 0.2s; text-align: center; text-decoration: none;
+        }
+        .btn:hover { background: var(--accent-hover); }
+
+        /* Футер */
+        footer {
+            text-align: center; padding: 40px 20px; margin-top: 60px;
+            background: #121214; border-top: 1px solid #27272a; color: var(--text-muted);
+            font-size: 13px;
+        }
+        .warning { color: #ef4444; font-weight: bold; margin-bottom: 10px; font-size: 14px; }
+
+        @media (max-width: 480px) {
+            .grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .card { padding: 12px; }
+            .card-icon { height: 90px; font-size: 40px; }
+            .card-title { font-size: 14px; min-height: 42px; }
+            .card-price { font-size: 17px; }
+            .btn { padding: 8px; font-size: 11px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Захист 18+ -->
+    <div id="age-gate">
+        <div class="age-box">
+            <h1>ВАМ Є 18 РОКІВ?</h1>
+            <p>Цей сайт є приватною вітриною магазину Marden Vape та містить інформацію про нікотиновмісну продукцію.</p>
+            <button class="btn" style="width: 100%; padding: 14px; font-size: 16px;" onclick="acceptAge()">ТАК, МЕНІ Є 18</button>
+            <a href="https://google.com" style="display: block; margin-top: 15px; color: var(--text-muted); font-size: 14px; text-decoration: none;">Ні, залишити сайт</a>
+        </div>
+    </div>
+
+    <!-- Шапка сайту -->
+    <header>
+        <div class="logo">Marden<span> Vape</span></div>
+        <a href="https://t.me/Marden_Chaser" target="_blank" class="tg-btn-top">✈️ Написати в Telegram</a>
+    </header>
+
+    <div class="container">
+
+        <!-- КАТЕГОРІЯ 1: CHASER 30ML -->
+        <div class="section-title">
+            <h2>Chaser 30ml (65mg)</h2>
+            <span>290 грн</span>
+        </div>
+        <div class="grid">
+            <div class="card"><div class="card-icon">🍑🍋</div><div class="card-title">Plum Lime Sour</div><div class="card-stock">В наявності: 3 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍒🌿</div><div class="card-title">Cranberry Mint</div><div class="card-stock">В наявності: 5 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">❄️🌿</div><div class="card-title">Cool Mint</div><div class="card-stock">В наявності: 3 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🌱</div><div class="card-title">Spearmint</div><div class="card-stock">В наявності: 2 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍬🌿</div><div class="card-title">Sweet Mint</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🫐🍓</div><div class="card-title">Blackberry Sour Raspberry</div><div class="card-stock">В наявності: 5 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍋🩷</div><div class="card-title">Pink Lemonade</div><div class="card-stock">В наявності: 5 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍓🫐</div><div class="card-title">Ягоди</div><div class="card-stock">В наявності: 5 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🫐🍑🍏</div><div class="card-title">Blackcurrant Peach Apple</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍓🍇</div><div class="card-title">Pamberry</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🌲🍓</div><div class="card-title">Forest Mix</div><div class="card-stock">В наявності: 4 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍬</div><div class="card-title">Bubblegum</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍓</div><div class="card-title">Полуниця</div><div class="card-stock">В наявності: 2 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍓🍌</div><div class="card-title">Полуниця Банан</div><div class="card-stock">В наявності: 4 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍉❄️</div><div class="card-title">Кавун Mentol</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍓🍇</div><div class="card-title">Triple Berry</div><div class="card-stock">В наявності: 2 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍉</div><div class="card-title">Кавун</div><div class="card-stock">В наявності: 4 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍓🍋</div><div class="card-title">Суниця Лимон</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍊</div><div class="card-title">Грейпфрут</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">😈🍓</div><div class="card-title">Flirt</div><div class="card-stock">В наявності: 2 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍓🍇</div><div class="card-title">Полуниця Виноград</div><div class="card-stock">В наявності: 4 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍓🫐</div><div class="card-title">Strawberry Blueberry</div><div class="card-stock">В наявності: 9 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">⚡🍒</div><div class="card-title">Енергетик Вишня</div><div class="card-stock">В наявності: 3 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍉🍋</div><div class="card-title">Watermelon Lemon</div><div class="card-stock">В наявності: 4 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍑</div><div class="card-title">Персик</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍇🫐</div><div class="card-title">Grape Blackberry</div><div class="card-stock">В наявності: 4 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🫐🍋</div><div class="card-title">Blueberry Lemon</div><div class="card-stock">В наявності: 2 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍏🍋</div><div class="card-title">Triple Sour Apple</div><div class="card-stock">В наявності: 3 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">❤️🍎</div><div class="card-title">Гранат</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍇</div><div class="card-title">Виноград</div><div class="card-stock">В наявності: 3 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🫐🍐</div><div class="card-title">Чорна Смородина Груша</div><div class="card-stock">В наявності: 4 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">⚡🍇</div><div class="card-title">Енергетик Виноград</div><div class="card-stock">В наявності: 5 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🥝</div><div class="card-title">Ківі</div><div class="card-stock">В наявності: 3 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍉🍏</div><div class="card-title">Кавун Яблуко</div><div class="card-stock">В наявності: 5 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🌿🍬</div><div class="card-title">Мʼятний Орбіт</div><div class="card-stock">В наявності: 5 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🥭🍑</div><div class="card-title">Гуава Персик</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍓🍓</div><div class="card-title">Triple Raspberry</div><div class="card-stock">В наявності: 3 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍧</div><div class="card-title">Щербет</div><div class="card-stock">В наявності: 5 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🫐❄️</div><div class="card-title">Чорниця Ментол</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🥤🍊</div><div class="card-title">Cola Pomelo</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🌿🌱</div><div class="card-title">Базилік Мʼята</div><div class="card-stock">В наявності: 2 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍓</div><div class="card-title">Суниця</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍉🍒</div><div class="card-title">Кавун Вишня</div><div class="card-stock">В наявності: 4 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🔵🍓</div><div class="card-title">Блакитна Малина Лимонад</div><div class="card-stock">В наявності: 7 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🫐❄️</div><div class="card-title">Смородина Ментол</div><div class="card-stock">В наявності: 2 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍒</div><div class="card-title">Черешня / Вишня</div><div class="card-stock">В наявності: 12 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍒❄️</div><div class="card-title">Вишня Ментол</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🫐🍬</div><div class="card-title">Blueberry Gum / Жуйка</div><div class="card-stock">В наявності: 10 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">⚡🍓</div><div class="card-title">Energy Raspberry</div><div class="card-stock">В наявності: 3 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍒🍵</div><div class="card-title">Вишневий Чай</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍒</div><div class="card-title">Порічка</div><div class="card-stock">В наявності: 2 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🫐🍓</div><div class="card-title">Смородина Малина</div><div class="card-stock">В наявності: 2 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍇🍒</div><div class="card-title">Виноград Вишня</div><div class="card-stock">В наявності: 3 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🫐🍦</div><div class="card-title">Чорничне Морозиво</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🌿🌱</div><div class="card-title">Прохолодна Мʼята</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍓🫐</div><div class="card-title">Berry Needles</div><div class="card-stock">В наявності: 7 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🫐</div><div class="card-title">Blackberry</div><div class="card-stock">В наявності: 8 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍹</div><div class="card-title">Punch</div><div class="card-stock">В наявності: 4 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍂🍵</div><div class="card-title">Fall Tea</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍓🍬</div><div class="card-title">Berry Candy</div><div class="card-stock">В наявності: 3 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍓🍮</div><div class="card-title">Strawberry Jelly</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🫐🌿</div><div class="card-title">Blueberry Mint</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🟡🐉</div><div class="card-title">Жовтий Драгонфрукт</div><div class="card-stock">В наявності: 5 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍌</div><div class="card-title">Банан</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🟡🍓</div><div class="card-title">Жовта Малина</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🟡🍒</div><div class="card-title">Жовта Черешня</div><div class="card-stock">В наявності: 2 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🫐🌹</div><div class="card-title">Blackcurrent Rose</div><div class="card-stock">В наявності: 2 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🌸🍓🍵</div><div class="card-title">Jasmine Raz Tea</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+        </div>
+
+        <!-- КАТЕГОРІЯ 2: CHASER 10ML -->
+        <div class="section-title">
+            <h2>Chaser 10ml (65mg)</h2>
+            <span>145 грн</span>
+        </div>
+        <div class="grid">
+            <div class="card"><div class="card-icon">🫐❄️</div><div class="card-title">Смородина Ментол</div><div class="card-stock">В наявності: 7 шт</div><div class="card-bottom"><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🌿</div><div class="card-title">Мʼята</div><div class="card-stock">В наявності: 5 шт</div><div class="card-bottom"><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍉</div><div class="card-title">Кавун</div><div class="card-stock">В наявності: 3 шт</div><div class="card-bottom"><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍓</div><div class="card-title">Полуниця</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🟡🐉</div><div class="card-title">Жовтий Драгонфрукт</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍊</div><div class="card-title">Грейпфрут</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍉❄️</div><div class="card-title">Кавун Ментол</div><div class="card-stock">В наявності: 3 шт</div><div class="card-bottom"><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍏🌿</div><div class="card-title">Яблуко Мʼята</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍒</div><div class="card-title">Черешня</div><div class="card-stock">В наявності: 2 шт</div><div class="card-bottom"><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🫐❄️</div><div class="card-title">Чорниця Ментол</div><div class="card-stock">В наявності: 2 шт</div><div class="card-bottom"><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍒❄️</div><div class="card-title">Вишня Ментол</div><div class="card-stock">В наявності: 1 шт</div><div class="card-bottom"><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+            <div class="card"><div class="card-icon">🍓</div><div class="card-title">Суниця</div><div class="card-stock">В наявності: 2 шт</div><div class="card-bottom"><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div></div>
+        </div>
+
+        <!-- КАТЕГОРІЯ 3: КАРТРИДЖІ -->
+        <div class="section-title">
+            <h2>Картриджі</h2>
+            <span>Розхідники</span>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">🔋</div>
+                <div class="card-title">Xros 0.6 2ml</div>
+                <div class="card-stock">В наявності: 8 шт</div>
+                <div class="card-bottom">
+                    <div class="card-price">130 грн/шт</div>
+                    <a href="https://t.me/Marden_Chaser" class="btn">Замовити</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p class="warning">ДИСТАНЦІЙНИЙ ПРОДАЖ НІКОТИНОВМІСНОЇ ПРОДУКЦІЇ НЕПОВНОЛІТНІМ ЗАБОРОНЕНО.</p>
+        <p>&copy; 2026 Marden Vape. Сайт створено як онлайн-вітрину для ознайомлення з асортиментом. 18+</p>
+    </footer>
+
+    <script>
+        function acceptAge() {
+            document.getElementById('age-gate').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
