@@ -60,13 +60,14 @@
         }
         .card:hover { transform: translateY(-4px); border-color: var(--accent); }
         .card-icon { height: 110px; display: flex; align-items: center; justify-content: center; font-size: 50px; background: #202024; border-radius: 8px; margin-bottom: 15px; }
-        .card-title { font-size: 16px; font-weight: 600; text-align: center; min-height: 45px; }
+        .card-title { font-size: 16px; font-weight: 600; text-align: center; min-height: 45px; display: flex; align-items: center; justify-content: center; }
         .card-price { font-size: 20px; font-weight: 700; text-align: center; margin: 15px 0; }
 
         .btn {
             background: var(--accent); color: #fff; border: none; padding: 12px;
             border-radius: 8px; font-weight: 600; cursor: pointer; text-align: center; text-decoration: none; display: block;
         }
+        .btn:hover { background: var(--accent-hover); }
         .btn-red { background: #ef4444; }
         .btn-red:hover { background: #dc2626; }
 
@@ -84,7 +85,6 @@
             <p>Вам вже виповнилося 18 років? Продаж нікотину неповнолітнім заборонений.</p>
             <div class="age-buttons">
                 <button class="btn" onclick="acceptAge()">ТАК, МЕНІ Є 18</button>
-                <!-- ПОСИЛАННЯ НА КОНКРЕТНЕ ВІДЕО -->
                 <a href="https://www.youtube.com/watch?v=KYniUCGPGLs" class="btn btn-red">НІ, МЕНІ НЕМАЄ 18</a>
             </div>
         </div>
@@ -92,19 +92,112 @@
 
     <header>
         <div class="logo">Marden<span> Vape</span></div>
-        <a href="https://t.me/Marden_Chaser" target="_blank" class="tg-btn-top">✈ shrink Замовити</a>
+        <a href="https://t.me/Marden_Chaser" target="_blank" class="tg-btn-top">✈ Замовити</a>
     </header>
 
     <div class="container">
+        
+        <!-- СЕКЦІЯ CHASER 30ML -->
         <div class="section-title">
-            <h2>Chaser Mix 30ml</h2>
+            <h2>Chaser 30ml (65mg)</h2>
             <span>290 грн</span>
         </div>
         <div class="grid">
             <div class="card"><div class="card-icon">🍑🍋</div><div class="card-title">Plum Lime Sour</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
             <div class="card"><div class="card-icon">🍒🌿</div><div class="card-title">Cranberry Mint</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
-            <div class="card"><div class="card-icon">🫐🍓</div><div class="card-title">Strawberry Blueberry</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">❄️🌿</div><div class="card-title">Cool Mint</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🌱</div><div class="card-title">Spearmint</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍬🌿</div><div class="card-title">Sweet Mint</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🫐🍓🍋</div><div class="card-title">Blackberry Sour Raspberry</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍋🩷</div><div class="card-title">Pink Lemonade</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍓🫐</div><div class="card-title">Ягоди</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🫐🍑🍏</div><div class="card-title">Blackcurrant Peach Apple</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍓🫐🍇</div><div class="card-title">Pamberry</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🌲🍓🫐</div><div class="card-title">Forest Mix</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍬</div><div class="card-title">Bubblegum</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍓</div><div class="card-title">Полуниця</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍓🍌</div><div class="card-title">Полуниця Банан</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍉❄️</div><div class="card-title">Кавун Ментол</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍓🫐🍇</div><div class="card-title">Triple Berry</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍉</div><div class="card-title">Кавун</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍓🍋</div><div class="card-title">Суниця Лимон</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍊</div><div class="card-title">Грейпфрут</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">😈🍓</div><div class="card-title">Flirt</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍓🍇</div><div class="card-title">Полуниця Виноград</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍓🫐</div><div class="card-title">Strawberry Blueberry</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">⚡🍒</div><div class="card-title">Енергетик Вишня</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍉🍋</div><div class="card-title">Watermelon Lemon</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍑</div><div class="card-title">Персик</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍇🫐</div><div class="card-title">Grape Blackberry</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🫐🍋</div><div class="card-title">Blueberry Lemon</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍏🍋</div><div class="card-title">Triple Sour Apple</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">❤️🍎</div><div class="card-title">Гранат</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍇</div><div class="card-title">Виноград</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🫐🍐</div><div class="card-title">Чорна Смородина Груша</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">⚡🍇</div><div class="card-title">Енергетик Виноград</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🥝</div><div class="card-title">Ківі</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍉🍏</div><div class="card-title">Кавун Яблуко</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🌿🍬</div><div class="card-title">Мятний Орбіт</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🥭🍑</div><div class="card-title">Гуава Персик</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍓🍓🍓</div><div class="card-title">Triple Raspberry</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍧</div><div class="card-title">Щербет</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🫐❄️</div><div class="card-title">Чорниця Ментол</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🥤🍊</div><div class="card-title">Cola Pomelo</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🌿🌱</div><div class="card-title">Базилік Мʼята</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍓</div><div class="card-title">Суниця</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍉🍒</div><div class="card-title">Кавун Вишня</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🔵🍓🍋</div><div class="card-title">Блакитна Малина Лимонад</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🫐❄️</div><div class="card-title">Смородина Ментол</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍒</div><div class="card-title">Черешня</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍉🍋</div><div class="card-title">Кавуновий Лимонад</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🔵🍓</div><div class="card-title">Блакитна Малина</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍒❄️</div><div class="card-title">Вишня Ментол</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🫐🍬</div><div class="card-title">Blueberry Gum / Жуйка</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍒</div><div class="card-title">Вишня</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">⚡🍓</div><div class="card-title">Energy Raspberry</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍒🍵</div><div class="card-title">Вишневий Чай</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍒</div><div class="card-title">Порічка</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🫐🍓</div><div class="card-title">Смородина Малина</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍇🍒</div><div class="card-title">Виноград Вишня</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🫐🍦</div><div class="card-title">Чорничне Морозиво</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍇⚡</div><div class="card-title">Виноградний Енергетик</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍓🫐</div><div class="card-title">Berry Needles</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🫐</div><div class="card-title">Blackberry</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍹</div><div class="card-title">Punch</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍂🍵</div><div class="card-title">Fall Tea</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍒</div><div class="card-title">Cherries</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍓🍬</div><div class="card-title">Berry Candy</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍓🍮</div><div class="card-title">Strawberry Jelly</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🫐🌿</div><div class="card-title">Blueberry Mint</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">⚡🍒</div><div class="card-title">Energy Cherry</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🟡🐉</div><div class="card-title">Жовтий Драгонфрукт</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍌</div><div class="card-title">Банан</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🟡🍓</div><div class="card-title">Жовта Малина</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🟡🍒</div><div class="card-title">Жовта Черешня</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🫐🌹</div><div class="card-title">Blackcurrant Rose</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🌸🍓🍵</div><div class="card-title">Jasmine Raz Tea</div><div class="card-price">290 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
         </div>
+
+        <!-- СЕКЦІЯ CHASER 10ML -->
+        <div class="section-title">
+            <h2>Chaser 10ml (65mg)</h2>
+            <span>145 грн</span>
+        </div>
+        <div class="grid">
+            <div class="card"><div class="card-icon">🫐❄️</div><div class="card-title">Смородина Ментол</div><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🌿</div><div class="card-title">Мʼята</div><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍉</div><div class="card-title">Кавун</div><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍓</div><div class="card-title">Полуниця</div><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🟡🐉</div><div class="card-title">Жовтий Драгонфрукт</div><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍊</div><div class="card-title">Грейпфрут</div><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍉❄️</div><div class="card-title">Кавун Menthol</div><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍏🌿</div><div class="card-title">Яблуко Мʼята</div><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍒</div><div class="card-title">Черешня</div><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🫐❄️</div><div class="card-title">Чорниця Ментол</div><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍒❄️</div><div class="card-title">Вишня Ментол</div><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+            <div class="card"><div class="card-icon">🍓</div><div class="card-title">Суниця</div><div class="card-price">145 грн</div><a href="https://t.me/Marden_Chaser" class="btn">Замовити</a></div>
+        </div>
+
     </div>
 
     <footer>
