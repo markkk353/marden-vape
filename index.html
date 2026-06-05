@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
-<head>
+<html lang="uk"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marden Vape | Онлайн Вітрина</title>
@@ -210,13 +209,13 @@
 <body>
 
     <!-- Панель збереження коду (видно лише адміну після змін) -->
-    <div id="admin-save-bar">
+    <div id="admin-save-bar" style="display: none;">
         <span>⚠️ Ви змінили асортимент вітрини! Щоб зберегти зміни назавжди:</span>
         <button class="btn-save-code" onclick="exportUpdatedCode()">Скопіювати новий код для GitHub</button>
     </div>
 
     <!-- Захист 18+ -->
-    <div id="age-gate">
+    <div id="age-gate" style="display: none;">
         <div class="age-box">
             <h1>ПЕРЕВІРКА ВІКУ</h1>
             <p>Вам вже виповнилося 18 років? Продаж нікотину неповнолітинім заборонений.</p>
@@ -236,9 +235,9 @@
     <div class="shelf-navigation">
         <div class="nav-title">Оберіть потрібну поличку:</div>
         <div class="nav-buttons">
-            <button class="nav-btn active" onclick="showShelf('all')">Усі товари</button>
+            <button class="nav-btn" onclick="showShelf('all')">Усі товари</button>
             <button class="nav-btn" onclick="showShelf('30')">Рідини 30 мл</button>
-            <button class="nav-btn" onclick="showShelf('10')">Рідини 10 мл</button>
+            <button class="nav-btn active" onclick="showShelf('10')">Рідини 10 мл</button>
             <button class="nav-btn" onclick="showShelf('hard')">Картриджі</button>
         </div>
     </div>
@@ -246,7 +245,7 @@
     <div class="container">
         
         <!-- ================= ПОЛИЧКА №1: 30 МЛ ================= -->
-        <div id="shelf-30" class="shelf-section">
+        <div id="shelf-30" class="shelf-section" style="display: none;">
             <div class="shelf-title">
                 <h2>🧪 Поличка Chaser 30 мл (65mg)</h2>
                 <div class="badge">290 грн</div>
@@ -257,182 +256,176 @@
                 <div class="category-title">🍋 Кислі та Освіжаючі мікси</div>
                 <div class="grid">
                     <div class="card" data-id="30-pink-lem" data-name="Pink lemonade (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍋🩷</div>
                         <div class="card-title">Pink lemonade <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-plum-lime" data-name="Plum lime sour (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍑🍋</div>
                         <div class="card-title">Plum lime sour <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-blue-lem" data-name="Blueberry lemon (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🫐🍋</div>
                         <div class="card-title">Blueberry lemon <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-sour-blue" data-name="Кисла чорниця (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🫐🍋</div>
                         <div class="card-title">Кисла чорниця <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-triple-apple" data-name="Triple sour apple (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍏🍋</div>
                         <div class="card-title">Triple sour apple <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-blck-sour-rasp" data-name="BlackBerry sour raspberry (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🫐🍓🍋</div>
                         <div class="card-title">BlackBerry sour rasp. <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-blue-rasp-lem" data-name="Блакитна малина лимонад (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🔵🍓🍋</div>
                         <div class="card-title">Блакитна малина лимонад <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-water-lem" data-name="Кавуновий лимонад (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍉🍋</div>
                         <div class="card-title">Кавуновий лимонад <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-water-lemon-mix" data-name="Кавун лимон (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍉🍋</div>
                         <div class="card-title">Кавун лимон <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-lemon-menthol" data-name="Лемон ментол (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍋❄️</div>
                         <div class="card-title">Лемон ментол <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-mint-orbit" data-name="Мятний орбіт (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🌿🍬</div>
                         <div class="card-title">Мятний орбіт <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-basil-mint" data-name="Базилік мята (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🌿🌱</div>
                         <div class="card-title">Базилік мята <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-menthol" data-name="Ментол (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">❄️</div>
                         <div class="card-title">Ментол <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-cool-mint" data-name="Cool mint (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">❄️🌿</div>
                         <div class="card-title">Cool mint <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
-                    <div class="card" data-id="30-proh-mint" data-name="Прохолодна мята (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
-                        <div class="card-icon">❄️🌿</div>
-                        <div class="card-title">Прохолодна мята <span class="ml-badge ml-30">30 ML</span></div>
-                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
-                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
-                    </div>
+                    
                     <div class="card" data-id="30-pepper-mint" data-name="Pepper mint (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🌿</div>
                         <div class="card-title">Pepper mint <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-m-yata" data-name="Мʼята (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🌿</div>
                         <div class="card-title">Мʼята <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-sweet-mint" data-name="Солодка мʼята (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍬🌿</div>
                         <div class="card-title">Солодка мʼята <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-cranb-mint" data-name="Cranberry mint (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍒🌿</div>
                         <div class="card-title">Cranberry mint <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-bilb-mint" data-name="Bilberry mint (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🫐🌿</div>
                         <div class="card-title">Bilberry mint <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-wild-str-mint" data-name="Wild strawberry mint (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍓🌿</div>
                         <div class="card-title">Wild Strawb. Mint <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-cherry-menthol" data-name="Вишня ментол (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍒❄️</div>
                         <div class="card-title">Вишня ментол <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-currant-menthol" data-name="Смородина ментол (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🫐❄️</div>
                         <div class="card-title">Смородина ментол <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-menthol-blue" data-name="Ментол чорниця (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">❄️🫐</div>
                         <div class="card-title">Ментол чорниця <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">3 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-water-menthol" data-name="Кавун ментол (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍉❄️</div>
                         <div class="card-title">Кавун ментол <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                 </div>
-                <div class="admin-add-flavor-zone"><button class="btn btn-admin-add" onclick="addNewFlavor(this, '30')">➕ Додати смак</button></div>
+                <div class="admin-add-flavor-zone" style="display: none;"><button class="btn btn-admin-add" onclick="addNewFlavor(this, '30')">➕ Додати смак</button></div>
             </div>
 
             <!-- СОЛОДКІ ЯГОДИ ТА МІКСИ -->
@@ -440,112 +433,112 @@
                 <div class="category-title">🍓 Солодкі Ягідні Коктейлі</div>
                 <div class="grid">
                     <div class="card" data-id="30-straw-blue" data-name="Strawberry Blueberry (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍓🫐</div>
                         <div class="card-title">Strawberry Blueberry <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">11 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-yagody" data-name="Ягоди (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍓🫐🍇</div>
                         <div class="card-title">Ягоди <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">3 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-triple-berry" data-name="Triple berry (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍓🫐🍇</div>
                         <div class="card-title">Triple berry <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-triple-rasp" data-name="Triple raspberry (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍓🍓🍓</div>
                         <div class="card-title">Triple raspberry <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">7 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-forest-mix" data-name="Forest mix (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🌲🍓🫐</div>
                         <div class="card-title">Forest mix <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">3 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-blue-gum" data-name="Blueberry gum (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🫐🍬</div>
                         <div class="card-title">Blueberry gum <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-blue-rasp" data-name="Блакитна малина (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🔵🍓</div>
                         <div class="card-title">Блакитна малина <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-grape-blackb" data-name="Grape Blackberry (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍇🫐</div>
                         <div class="card-title">Grape Blackberry <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-ice-rasp" data-name="Крижана малина (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍓❄️</div>
                         <div class="card-title">Крижана малина <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-berry-candy" data-name="Berry candy (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍓🍬</div>
                         <div class="card-title">Berry candy <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">3 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-berry-needles" data-name="Berry needles (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍓🫐</div>
                         <div class="card-title">Berry needles <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">6 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-blackberry" data-name="BlackBerry (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Виalirти</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Виalirти</button></div>
                         <div class="card-icon">🫐</div>
                         <div class="card-title">BlackBerry <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">8 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-yellow-rasp" data-name="Жовта малина (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🟡🍓</div>
                         <div class="card-title">Жовта малина <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-blue-gum-chk" data-name="Чорнична жуйка (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🫐🍬</div>
                         <div class="card-title">Чорнична жуйка <span class="ml-badge ml-30">30 ML</span></div>
-                        <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
+                        <div class="card-price">290 грн<div class="stock-count">3 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-smor-mal" data-name="Смородина малина (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🫐🍓</div>
                         <div class="card-title">Смородина малина <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                 </div>
-                <div class="admin-add-flavor-zone"><button class="btn btn-admin-add" onclick="addNewFlavor(this, '30')">➕ Додати смак</button></div>
+                <div class="admin-add-flavor-zone" style="display: none;"><button class="btn btn-admin-add" onclick="addNewFlavor(this, '30')">➕ Додати смак</button></div>
             </div>
 
             <!-- ФРУКТИ ТА ЕКЗОТИКА -->
@@ -553,306 +546,300 @@
                 <div class="category-title">🥭 Стиглі Фрукти та Екзотика</div>
                 <div class="grid">
                     <div class="card" data-id="30-straw-ban" data-name="Полуниця банан (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍓🍌</div>
                         <div class="card-title">Полуниця банан <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-straw-vine" data-name="Полуниця виноград (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍓🍇</div>
                         <div class="card-title">Полуниця виноград <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-flirt" data-name="Flirt (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">😈🍓</div>
                         <div class="card-title">Flirt <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-sunycya" data-name="Суниця (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍓</div>
                         <div class="card-title">Суниця <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-greyfr" data-name="Грейпфрукт (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍊</div>
                         <div class="card-title">Грейпфрукт <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-kavun" data-name="Кавун (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍉</div>
                         <div class="card-title">Кавун <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-persik" data-name="Персик (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍑</div>
                         <div class="card-title">Персик <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-babl-gam" data-name="Бабл гам (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍬</div>
                         <div class="card-title">Бабл гам <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-cherry-en" data-name="Вишня енергетик (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">⚡🍒</div>
                         <div class="card-title">Вишня енергетик <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-currant-pear" data-name="Чорна смородина груша (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🫐🍐</div>
                         <div class="card-title">Чорна смородина груша <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">7 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-vinograd" data-name="Виноград (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍇</div>
                         <div class="card-title">Виноград <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">6 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-chereshnya" data-name="Черешня (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍒</div>
                         <div class="card-title">Черешня <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-water-apple" data-name="Кавун яблуко (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍉🍏</div>
                         <div class="card-title">Кавун яблуко <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-granat" data-name="Гранат (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">❤️🍎</div>
                         <div class="card-title">Гранат <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-kiwi" data-name="Ківі (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🥝</div>
                         <div class="card-title">Ківі <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">3 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-sherbet" data-name="Щербет (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍧</div>
                         <div class="card-title">Щербет <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">6 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-cola-pamela" data-name="Кола памела (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🥤🍊</div>
                         <div class="card-title">Кола памела <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-water-cherry" data-name="Кавун вишня (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍉🍒</div>
                         <div class="card-title">Кавун вишня <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-vyshnya" data-name="Вишня (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍒</div>
                         <div class="card-title">Вишня <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-en-rasp" data-name="Energy Raspberry (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">⚡🍓</div>
                         <div class="card-title">Energy Raspberry <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-cherry-tea" data-name="Вишневий чай (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍒🍵</div>
                         <div class="card-title">Вишневий чай <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-blck-peach-appl" data-name="Blackcurrant peach apple (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🫐🍑🍏</div>
                         <div class="card-title">Blckcurrant Peach Apple <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-wild-straw-kiwi" data-name="Wild strawberry kiwi (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍓🥝</div>
                         <div class="card-title">Wild Strawb. Kiwi <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-en-grape" data-name="Енергетик виноград (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">⚡🍇</div>
                         <div class="card-title">Енергетик виноград <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-oblypiha" data-name="Обліпиха (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🟠</div>
                         <div class="card-title">Обліпиха <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-porichka" data-name="Порічка (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍒</div>
                         <div class="card-title">Порічка <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-abrikos" data-name="Абрикос (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍑</div>
                         <div class="card-title">Абрикос <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-lichi-abrikos" data-name="Лічі абрикос (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍈🟨</div>
                         <div class="card-title">Лічі абрикос <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
-                    <div class="card" data-id="30-bali-triple" data-name="Bali triple shot (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
-                        <div class="card-icon">🍹🔥</div>
-                        <div class="card-title">Bali triple shot <span class="ml-badge ml-30">30 ML</span></div>
-                        <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
-                        <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
-                    </div>
+                    
                     <div class="card" data-id="30-bali" data-name="Bali (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍹</div>
                         <div class="card-title">Bali <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-jas-tea" data-name="Jasmine raz tea (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🌸🍓🍵</div>
                         <div class="card-title">Jasmine raz tea <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-blck-rose" data-name="Blakcurrant rose (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🫐🌹</div>
                         <div class="card-title">Blakcurrant rose <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-cherries" data-name="Cherries (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍒</div>
                         <div class="card-title">Cherries <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">3 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-jelly" data-name="Strawberry jelly (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍓🍮</div>
                         <div class="card-title">Strawberry jelly <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-fall-tea" data-name="Fall tea (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍂🍵</div>
                         <div class="card-title">Fall tea <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-punch" data-name="Punch (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍹</div>
                         <div class="card-title">Punch <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-banan" data-name="Банан (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍌</div>
                         <div class="card-title">Банан <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-yellow-cher" data-name="Жовта черешня (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🟡🍒</div>
                         <div class="card-title">Жовта черешня <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-polun" data-name="Полуниця (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍓</div>
                         <div class="card-title">Полуниця <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-lichi" data-name="Лічі (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍈</div>
                         <div class="card-title">Лічі <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-dragon" data-name="Жовтий дракон фрукт (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🟡🐉</div>
                         <div class="card-title">Жовтий дракон фрукт <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">5 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-vine-cherry" data-name="Виноград вишня (30ml)" data-price="290">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍇🍒</div>
                         <div class="card-title">Виноград вишня <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">4 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                 </div>
-                <div class="admin-add-flavor-zone"><button class="btn btn-admin-add" onclick="addNewFlavor(this, '30')">➕ Додати смак</button></div>
+                <div class="admin-add-flavor-zone" style="display: none;"><button class="btn btn-admin-add" onclick="addNewFlavor(this, '30')">➕ Додати смак</button></div>
             </div>
         </div>
 
         <!-- ================= ПОЛИЧКА №2: 10 МЛ ================= -->
-        <div id="shelf-10" class="shelf-section">
+        <div id="shelf-10" class="shelf-section" style="display: block;">
             <div class="shelf-title">
                 <h2>🧪 Поличка Chaser 10 мл (65mg)</h2>
                 <div class="badge">145 грн</div>
@@ -862,110 +849,110 @@
                 <div class="category-title">⚡ Свіжі та Фруктові мікси</div>
                 <div class="grid">
                     <div class="card" data-id="10-yagody" data-name="Ягоди (10ml)" data-price="145">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍓🫐🍇</div>
                         <div class="card-title">Ягоди <span class="ml-badge ml-10">10 ML</span></div>
                         <div class="card-price">145 грн<div class="stock-count">3 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="10-blue-rasp" data-name="Блакитна малина (10ml)" data-price="145">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🔵🍓</div>
                         <div class="card-title">Блакитна малина <span class="ml-badge ml-10">10 ML</span></div>
                         <div class="card-price">145 грн<div class="stock-count">3 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="10-sunycya" data-name="Суниця (10ml)" data-price="145">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍓</div>
                         <div class="card-title">Суниця <span class="ml-badge ml-10">10 ML</span></div>
-                        <div class="card-price">145 грн<div class="stock-count">2 шт</div></div>
+                        <div class="card-price">145 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="10-porichka" data-name="Порічка (10ml)" data-price="145">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍒</div>
                         <div class="card-title">Порічка <span class="ml-badge ml-10">10 ML</span></div>
                         <div class="card-price">145 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="10-kiwi" data-name="Ківі (10ml)" data-price="145">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🥝</div>
                         <div class="card-title">Ківі <span class="ml-badge ml-10">10 ML</span></div>
                         <div class="card-price">145 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="10-granat" data-name="Гранат (10ml)" data-price="145">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">❤️🍎</div>
                         <div class="card-title">Гранат <span class="ml-badge ml-10">10 ML</span></div>
                         <div class="card-price">145 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="10-kavun" data-name="Кавун (10ml)" data-price="145">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍉</div>
                         <div class="card-title">Кавун <span class="ml-badge ml-10">10 ML</span></div>
                         <div class="card-price">145 грн<div class="stock-count">4 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="10-water-menthol" data-name="Кавун ментол (10ml)" data-price="145">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍉❄️</div>
                         <div class="card-title">Кавун ментол <span class="ml-badge ml-10">10 ML</span></div>
                         <div class="card-price">145 грн<div class="stock-count">4 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="10-apple-mint" data-name="Яблуко мята (10ml)" data-price="145">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍏🌿</div>
                         <div class="card-title">Яблуко мята <span class="ml-badge ml-10">10 ML</span></div>
-                        <div class="card-price">145 грн<div class="stock-count">2 шт</div></div>
+                        <div class="card-price">145 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="10-currant-menthol" data-name="Смородина ментол (10ml)" data-price="145">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🫐❄️</div>
                         <div class="card-title">Смородина ментол <span class="ml-badge ml-10">10 ML</span></div>
                         <div class="card-price">145 грн<div class="stock-count">4 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="10-blue-menthol" data-name="Чорниця ментол (10ml)" data-price="145">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🫐❄️</div>
                         <div class="card-title">Чорниця ментол <span class="ml-badge ml-10">10 ML</span></div>
                         <div class="card-price">145 грн<div class="stock-count">3 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="10-chereshnya" data-name="Черешня (10ml)" data-price="145">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍒</div>
                         <div class="card-title">Черешня <span class="ml-badge ml-10">10 ML</span></div>
                         <div class="card-price">145 грн<div class="stock-count">2 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="10-cherry-menthol" data-name="Вишня ментол (10ml)" data-price="145">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🍒❄️</div>
                         <div class="card-title">Вишня ментол <span class="ml-badge ml-10">10 ML</span></div>
                         <div class="card-price">145 грн<div class="stock-count">1 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="10-m-yata" data-name="Мʼята (10ml)" data-price="145">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🌿</div>
                         <div class="card-title">Мʼята <span class="ml-badge ml-10">10 ML</span></div>
                         <div class="card-price">145 грн<div class="stock-count">4 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                 </div>
-                <div class="admin-add-flavor-zone"><button class="btn btn-admin-add" onclick="addNewFlavor(this, '10')">➕ Додати смак</button></div>
+                <div class="admin-add-flavor-zone" style="display: none;"><button class="btn btn-admin-add" onclick="addNewFlavor(this, '10')">➕ Додати смак</button></div>
             </div>
         </div>
 
         <!-- ================= ПОЛИЧКА №3: КАРТРИДЖІ ================= -->
-        <div id="shelf-hard" class="shelf-section">
+        <div id="shelf-hard" class="shelf-section" style="display: none;">
             <div class="shelf-title">
                 <h2>🔌 Картриджі Xros</h2>
                 <div class="badge">130 грн</div>
@@ -975,14 +962,14 @@
                 <div class="category-title">⚙️ Вихідні розхідники</div>
                 <div class="grid">
                     <div class="card" data-id="hard-xros-06" data-name="Xros 2ml 0.6om" data-price="130">
-                        <div class="admin-controls"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🔋</div>
                         <div class="card-title">Xros 2ml 0.6om <span class="ml-badge ml-hard">Cartridge</span></div>
                         <div class="card-price">130 грн<div class="stock-count">5 шт</div></div>
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                 </div>
-                <div class="admin-add-flavor-zone"><button class="btn btn-admin-add" onclick="addNewFlavor(this, 'hard')">➕ Додати картридж</button></div>
+                <div class="admin-add-flavor-zone" style="display: none;"><button class="btn btn-admin-add" onclick="addNewFlavor(this, 'hard')">➕ Додати картридж</button></div>
             </div>
         </div>
 
@@ -995,7 +982,7 @@
     </div>
 
     <!-- ТАЄМНЕ ВІКНО АДМІНІСТРАТОРА -->
-    <div id="admin-modal">
+    <div id="admin-modal" style="display: none;">
         <div class="admin-box">
             <h3>Вхід в панель управління</h3>
             <input type="text" id="admin-login" class="admin-input" placeholder="Логін">
@@ -1253,5 +1240,6 @@
             });
         }
     </script>
-</body>
-</html>
+
+
+</body></html>
