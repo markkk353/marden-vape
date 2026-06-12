@@ -208,14 +208,12 @@
 </head>
 <body>
 
-    <!-- Панель збереження коду (видно лише адміну після змін) -->
     <div id="admin-save-bar" style="display: none;">
         <span>⚠️ Ви змінили асортимент вітрини! Щоб зберегти зміни назавжди:</span>
         <button class="btn-save-code" onclick="exportUpdatedCode()">Скопіювати новий код для GitHub</button>
     </div>
 
-    <!-- Захист 18+ -->
-    <div id="age-gate" style="display: none;">
+    <div id="age-gate" style="display: flex;">
         <div class="age-box">
             <h1>ПЕРЕВІРКА ВІКУ</h1>
             <p>Вам вже виповнилося 18 років? Продаж нікотину неповнолітинім заборонений.</p>
@@ -231,7 +229,6 @@
         <a href="https://t.me/Marden_Chaser" target="_blank" class="tg-btn-top">✈ Замовити у Telegram</a>
     </header>
 
-    <!-- НАВІГАЦІЯ -->
     <div class="shelf-navigation">
         <div class="nav-title">Оберіть потрібну поличку:</div>
         <div class="nav-buttons">
@@ -244,14 +241,12 @@
 
     <div class="container">
         
-        <!-- ================= ПОЛИЧКА №1: 30 МЛ ================= -->
         <div id="shelf-30" class="shelf-section" style="display: none;">
             <div class="shelf-title">
                 <h2>🧪 Поличка Chaser 30 мл (65mg)</h2>
                 <div class="badge">290 грн</div>
             </div>
 
-            <!-- КИСЛІ ТА ОСВІЖАЮЧІ -->
             <div class="flavor-category">
                 <div class="category-title">🍋 Кислі та Освіжаючі мікси</div>
                 <div class="grid">
@@ -428,7 +423,6 @@
                 <div class="admin-add-flavor-zone" style="display: none;"><button class="btn btn-admin-add" onclick="addNewFlavor(this, '30')">➕ Додати смак</button></div>
             </div>
 
-            <!-- СОЛОДКІ ЯГОДИ ТА МІКСИ -->
             <div class="flavor-category">
                 <div class="category-title">🍓 Солодкі Ягідні Коктейлі</div>
                 <div class="grid">
@@ -510,7 +504,7 @@
                         <div class="action-zone"><button class="btn" onclick="addToCart(this)">В кошик</button></div>
                     </div>
                     <div class="card" data-id="30-blackberry" data-name="BlackBerry (30ml)" data-price="290">
-                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Виalirти</button></div>
+                        <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
                         <div class="card-icon">🫐</div>
                         <div class="card-title">BlackBerry <span class="ml-badge ml-30">30 ML</span></div>
                         <div class="card-price">290 грн<div class="stock-count">8 шт</div></div>
@@ -541,7 +535,6 @@
                 <div class="admin-add-flavor-zone" style="display: none;"><button class="btn btn-admin-add" onclick="addNewFlavor(this, '30')">➕ Додати смак</button></div>
             </div>
 
-            <!-- ФРУКТИ ТА ЕКЗОТИКА -->
             <div class="flavor-category">
                 <div class="category-title">🥭 Стиглі Фрукти та Екзотика</div>
                 <div class="grid">
@@ -838,7 +831,6 @@
             </div>
         </div>
 
-        <!-- ================= ПОЛИЧКА №2: 10 МЛ ================= -->
         <div id="shelf-10" class="shelf-section" style="display: block;">
             <div class="shelf-title">
                 <h2>🧪 Поличка Chaser 10 мл (65mg)</h2>
@@ -846,7 +838,7 @@
             </div>
 
             <div class="flavor-category">
-                <div class="category-title">⚡ Свіжі та Фруктові мікси</div>
+                <div class="category-title">    Свіжі та Фруктові мікси</div>
                 <div class="grid">
                     <div class="card" data-id="10-yagody" data-name="Ягоди (10ml)" data-price="145">
                         <div class="admin-controls" style="display: none;"><button class="admin-ctrl-btn btn-ctrl-edit" onclick="editFlavorName(this)">Назва</button><button class="admin-ctrl-btn btn-ctrl-stock" onclick="editFlavorStock(this)">К-сть</button><button class="admin-ctrl-btn btn-ctrl-del" onclick="deleteFlavor(this)">Видалити</button></div>
@@ -951,7 +943,6 @@
             </div>
         </div>
 
-        <!-- ================= ПОЛИЧКА №3: КАРТРИДЖІ ================= -->
         <div id="shelf-hard" class="shelf-section" style="display: none;">
             <div class="shelf-title">
                 <h2>🔌 Картриджі Xros</h2>
@@ -975,13 +966,11 @@
 
     </div>
 
-    <!-- ВІДЖЕТ КОШИКА -->
     <div id="cart-bar">
         <div class="cart-info">У кошику товарів: <span id="cart-count">0</span> шт. | Сума: <span id="cart-total">0</span> грн</div>
         <button class="cart-btn" onclick="sendOrder()">Оформити у Telegram ✈</button>
     </div>
 
-    <!-- ТАЄМНЕ ВІКНО АДМІНІСТРАТОРА -->
     <div id="admin-modal" style="display: none;">
         <div class="admin-box">
             <h3>Вхід в панель управління</h3>
@@ -1165,7 +1154,7 @@
             let currentIcon = iconEl.innerText;
 
             let newIcon = prompt("Введіть смакові емодзі (наприклад, 🍓🍏):", currentIcon);
-            let newName = prompt("Введіть нову технічну назву смаку (для кошику):", currentFullName);
+            let newName = prompt("Введіть нову технічную назву смаку (для кошику):", currentFullName);
 
             if (newIcon !== null && newIcon.trim() !== "") {
                 iconEl.innerText = newIcon;
@@ -1219,19 +1208,24 @@
         }
 
         function exportUpdatedCode() {
+            // Приховуємо панелі адміна перед копіюванням
             document.querySelectorAll('.admin-controls').forEach(el => el.style.display = 'none');
             document.querySelectorAll('.admin-add-flavor-zone').forEach(el => el.style.display = 'none');
             document.getElementById('admin-save-bar').style.display = 'none';
             
+            // Скидаємо кошик у картках до дефолтного стану
             document.querySelectorAll('.card').forEach(card => {
                 let zone = card.querySelector('.action-zone');
                 zone.innerHTML = `<button class="btn" onclick="addToCart(this)">В кошик</button>`;
             });
 
+            // ВИПРАВЛЕННЯ: Перед збереженням коду повертаємо вікну 18+ статус visible (display: flex)
+            document.getElementById('age-gate').style.display = 'flex';
+
             let fullHTML = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
             
             navigator.clipboard.writeText(fullHTML).then(() => {
-                alert("🔥 Новий код успішно СКОПІЙОВАНО в буфер обміну!\n\nТепер просто відкрий свій файл index.html на GitHub, виділи все, видали, встав цей скопійований код та збережи (Commit changes). Твій сайт миттєво оновиться з новою наявністю!");
+                alert("🔥 Новий код успішно СКОПІЙОВАНО в буфер обміну!\n\nТепер просто відкрий свій файл index.html на GitHub, виділи все, видали, встав цей скопійований код та збережи (Commit changes). Твій сайт миттєво оновиться з новою наявністю та працюючим вікном 18+!");
                 activateAdminMode();
             }).catch(err => {
                 alert("Не вдалося автоматично скопіювати код. Скопіюйте його вручну з консолі браузера.");
@@ -1240,6 +1234,5 @@
             });
         }
     </script>
-
 
 </body></html>
